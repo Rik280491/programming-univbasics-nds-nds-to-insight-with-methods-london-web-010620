@@ -8,7 +8,7 @@ def gross_for_director(director_data)
   coordinate = 0
 
   while coordinate < director_data[:movies].length do
-    total += director_data[:movies][index][:worldwide_gross]
+    total += director_data[:movies][coordinate][:worldwide_gross]
     coordinate += 1
   end
 
@@ -16,4 +16,14 @@ def gross_for_director(director_data)
 end
   
   
+def directors_totals(nds)
+  result = {}
 
+  director_index = 0
+  while director_index < nds.size do
+    director = nds[director_index]
+    result[director[:name]] = gross_for_director(director_data)
+    director_index += 1
+  end
+  result
+end
